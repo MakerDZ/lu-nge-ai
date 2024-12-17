@@ -1,0 +1,19 @@
+services:
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    environment:
+      - MONGO_URL=mongodb+srv://astrafusion27:QcGlJyT2zdP2JySw@engine1.ljtgo.mongodb.net/
+    restart: unless-stopped
+    networks:
+      - chatbot_network
+    working_dir: /LUNGE/LuNge
+
+networks:
+  chatbot_network:
+    driver: bridge
